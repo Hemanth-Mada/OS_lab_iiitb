@@ -10,14 +10,16 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     struct stat buf;
-    
-    for (int i = 1; i < argc; i++) {
+
+    for (int i = 1; i < argc; i++)
+    {
         stat(argv[i], &buf);
         write(1, argv[i], sizeof(argv[i]));
         write(1, " is ", 4);
-        
+
         if (S_ISDIR(buf.st_mode))
             write(1, "a directory\n", 12);
         else if (S_ISLNK(buf.st_mode))
@@ -33,6 +35,6 @@ int main(int argc, char *argv[]) {
         else
             write(1, "an unknown file type\n", 22);
     }
-    
+
     return 0;
 }

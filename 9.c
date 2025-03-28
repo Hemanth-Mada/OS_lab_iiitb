@@ -1,4 +1,4 @@
-/*    Program Number: 9 
+/*    Program Number: 9
       Student Name: Mada Hemanth; Register Number: IMT2023581
       Date: 26 March, 2025
       Description: This program prints various details about a given file,
@@ -10,11 +10,12 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-int main() {
+int main()
+{
     struct stat fileStat;
-    
+
     stat("q9.txt", &fileStat);
-    
+
     printf("Inode: %lu\n", (unsigned long)fileStat.st_ino);
     printf("Number of Hard Links: %lu\n", (unsigned long)fileStat.st_nlink);
     printf("UID: %u\n", (unsigned int)fileStat.st_uid);
@@ -25,6 +26,6 @@ int main() {
     printf("Time of last access: %ld\n", (long)fileStat.st_atime);
     printf("Time of last modification: %ld\n", (long)fileStat.st_mtime);
     printf("Time of last change: %ld\n", (long)fileStat.st_ctime);
-    
+
     return 0;
 }
