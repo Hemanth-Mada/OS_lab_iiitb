@@ -27,12 +27,12 @@ int main(int argc, char *argv[])
 
     if (pid == 0)
     {
-        write(file, "Child process writing...\n", 26);
+        write(file, "Child process writing\n", 26);
     }
     else
     {
         wait(NULL);
-        write(file, "Parent process writing...\n", 27);
+        write(file, "Parent process writing\n", 27);
     }
 
     close(file);

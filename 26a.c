@@ -4,11 +4,11 @@
       Description: execl demo
 */
 
-
 #include <stdio.h>
 #include <unistd.h>
 
-int main() {
+int main()
+{
     int dummy = 0;
     printf("Trying execl version:\n");
     sleep(1);

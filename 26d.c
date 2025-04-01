@@ -5,12 +5,13 @@
 */
 #include <stdio.h>
 
-int main() {
+int main()
+{
     char *cmd[3];
     cmd[0] = "ls";
     cmd[1] = "-Rl";
     cmd[2] = NULL;
-    
+
     printf("Array version:\n");
     execv("/bin/ls", cmd);
 

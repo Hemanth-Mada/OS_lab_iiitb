@@ -30,17 +30,17 @@ int main()
             else
             {
                 // Parent waiting for children to finish
-                printf("Process waiting for first child...\n");
+                printf("Process waiting for first child\n");
                 waitpid(child1, NULL, 0);
                 printf("Child 1 exited.\n");
 
-                printf("Process waiting for second child...\n");
+                printf("Process waiting for second child\n");
                 waitpid(child2, NULL, 0);
                 printf("Child 2 exited.\n");
 
-                printf("Process waiting for third child...\n");
+                printf("Process waiting for third child\n");
                 waitpid(child3, NULL, 0);
-                printf("Child 3 exited.\n");
+                printf("Child 3 exited\n");
             }
         }
     }

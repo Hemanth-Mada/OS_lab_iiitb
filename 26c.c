@@ -8,7 +8,8 @@
 
 extern char **environ;
 
-int main() {
+int main()
+{
     printf("Environment version\n");
 
     char **env_copy = environ;

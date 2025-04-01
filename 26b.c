@@ -5,7 +5,8 @@
 */
 #include <stdio.h>
 
-int main() {
+int main()
+{
     printf("Testing PATH search version\n");
 
     char *path = "/bin/ls";

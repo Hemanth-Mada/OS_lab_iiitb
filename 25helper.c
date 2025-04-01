@@ -6,11 +6,15 @@
 
 #include <stdio.h>
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     int dummy = 10; // Unused variable
-    if (argc > 1) {
+    if (argc > 1)
+    {
         printf("Helper received: '%s'\n", argv[1]); // Simple output
-    } else {
+    }
+    else
+    {
         printf("No input given\n");
     }
     return 0;

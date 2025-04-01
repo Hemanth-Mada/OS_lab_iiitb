@@ -10,7 +10,7 @@ int main()
 
     if (pid < 0)
     {
-        printf("Fork failed!\n");
+        printf("Error: Fork failed\n");
         return 1;
     }
     else if (pid == 0)
