@@ -11,7 +11,7 @@
 
 int main()
 {
-    int fd = open("test.txt", O_RDWR);
+    int fd = open("q16.txt", O_RDWR);
     if (fd == -1)
     {
         printf("Error opening file\n");

@@ -1,8 +1,8 @@
-/* Program Number: 28
-Student Name: Mada Hemanth; Register Number: IMT2023581
-Date: 1 April, 2025
-Description: This program finds out the current priority of itself and then
-             modifies it using the nice system call.
+/*    Program Number: 28
+      Student Name: Mada Hemanth; Register Number: IMT2023581
+      Date: 1 April, 2025
+      Description: This program finds out the current priority of itself and then
+                   modifies it using the nice system call.
 */
 
 #include <stdio.h>

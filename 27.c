@@ -1,8 +1,8 @@
-/* Program Number: 27
-Student Name: Mada Hemanth; Register Number: IMT2023581
-Date: 1 April, 2025
-Description: This program retrieves and displays the maximum and minimum
-             real-time priority values for SCHED_FIFO scheduling policy.
+/*    Program Number: 27
+      Student Name: Mada Hemanth; Register Number: IMT2023581
+      Date: 1 April, 2025
+      Description: This program retrieves and displays the maximum and minimum
+                   real-time priority values for SCHED_FIFO scheduling policy.
 */
 
 #include <stdio.h>

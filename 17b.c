@@ -16,7 +16,7 @@ typedef struct
 
 int main()
 {
-    int file = open("tickets.txt", O_RDWR);
+    int file = open("q17.txt", O_RDWR);
     if (file < 0)
     {
         perror("Failed to open file");

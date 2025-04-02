@@ -5,15 +5,16 @@
                    using only read and write system calls.
 */
 
+#include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
 
 int main()
 {
-    char buffer[100];
+    char buffer[100] = {};
 
     read(STDIN_FILENO, buffer, 100);
     write(STDOUT_FILENO, buffer, 100);
 
-    return 0;
+
 }

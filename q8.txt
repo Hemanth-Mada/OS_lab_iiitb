@@ -1,0 +1,7 @@
+Hello, this is a temp file made for Program 8
+Program 8 opens a file in read only mode
+and
+print
+each
+line
+it reads.

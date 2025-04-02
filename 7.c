@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
    int src, dest;
    char buf[50];
-   int n;
+   long int n;
 
    src = open(argv[1], O_RDONLY);
    dest = open(argv[2], O_CREAT | O_WRONLY, 0700);

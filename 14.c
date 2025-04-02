@@ -1,4 +1,4 @@
-/*    Program Number: 13
+/*    Program Number: 14
       Student Name: Mada Hemanth; Register Number: IMT2023581
       Date: 26 March, 2025
       Description: This program identifies the type of file given as input

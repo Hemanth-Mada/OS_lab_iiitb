@@ -15,7 +15,7 @@ typedef struct
 
 int main()
 {
-    int file = open("tickets.txt", O_RDWR | O_CREAT | O_TRUNC, 0644);
+    int file = open("q17.txt", O_RDWR | O_CREAT | O_TRUNC, 0644);
     if (file < 0)
     {
         perror("Could not open file");

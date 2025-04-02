@@ -1,8 +1,8 @@
-/* Program Number: 29
-Student Name: Mada Hemanth; Register Number: IMT2023581
-Date: 1 April, 2025
-Description: This program obtains the current scheduling policy of the process
-             and then tries to modify it to SCHED_RR (Round Robin).
+/*    Program Number: 29
+      Student Name: Mada Hemanth; Register Number: IMT2023581
+      Date: 1 April, 2025
+      Description: This program obtains the current scheduling policy of the process
+                   and then tries to modify it to SCHED_RR (Round Robin).
 */
 
 #include <stdio.h>
