@@ -1,7 +1,7 @@
 /*    Program Number: 22
       Student Name: Mada Hemanth; Register Number: IMT2023581
       Date: 28 March, 2025
-      Description: 
+      Description: A program to create a Zombie state in the running program.
 */
 
 #include <stdio.h>

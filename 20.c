@@ -1,7 +1,8 @@
 /*    Program Number: 20
       Student Name: Mada Hemanth; Register Number: IMT2023581
       Date: 28 March, 2025
-      Description: 
+      Description: A program that calls fork and prints 
+                   both the parent and child process IDs.
 */
 
 #include <stdio.h>

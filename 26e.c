@@ -9,8 +9,6 @@
 
 int main()
 {
-    printf("PATH search array version\n");
-
     char *args[3];
     args[0] = "ls";
     args[1] = "-Rl";

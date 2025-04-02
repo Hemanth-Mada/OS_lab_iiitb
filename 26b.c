@@ -5,11 +5,10 @@
 */
 
 #include <stdio.h>
+#include <unistd.h>
 
 int main()
 {
-    printf("Testing PATH search version\n");
-
     char *path = "/bin/ls";
     execlp(path, "ls", "-Rl", NULL);
 

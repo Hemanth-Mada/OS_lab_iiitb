@@ -9,9 +9,6 @@
 
 int main()
 {
-    int dummy = 0;
-    printf("Trying execl version:\n");
-    sleep(1);
     execl("/bin/ls", "ls", "-Rl", (char *)NULL);
 
     printf("This won't print\n");

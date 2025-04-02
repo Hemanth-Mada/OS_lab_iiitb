@@ -1,7 +1,7 @@
 /*    Program Number: 23
       Student Name: Mada Hemanth; Register Number: IMT2023581
       Date: 28 March, 2025
-      Description: 
+      Description: A program to create an Orphan process.
 */
 
 #include <stdio.h>
@@ -20,7 +20,7 @@ int main()
     if (pid == 0)
     { // Child process
         printf("Child process running. PID: %d, Parent PID: %d\n", getpid(), getppid());
-        sleep(20); // Give time for parent to exit
+        sleep(20);
         printf("Child process after parent exits. PID: %d, New Parent PID: %d\n", getpid(), getppid());
     }
     else

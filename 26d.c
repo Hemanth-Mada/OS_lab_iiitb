@@ -5,6 +5,7 @@
 */
 
 #include <stdio.h>
+#include <unistd.h>
 
 int main()
 {
@@ -13,7 +14,6 @@ int main()
     cmd[1] = "-Rl";
     cmd[2] = NULL;
 
-    printf("Array version:\n");
     execv("/bin/ls", cmd);
 
     return 1;

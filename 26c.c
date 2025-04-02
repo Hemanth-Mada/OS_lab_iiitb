@@ -11,8 +11,6 @@ extern char **environ;
 
 int main()
 {
-    printf("Environment version\n");
-
     char **env_copy = environ;
     execle("/bin/ls", "ls", "-Rl", NULL, env_copy);
 

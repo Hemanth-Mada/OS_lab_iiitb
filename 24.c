@@ -1,7 +1,8 @@
 /*    Program Number: 24
       Student Name: Mada Hemanth; Register Number: IMT2023581
       Date: 28 March, 2025
-      Description: 
+      Description: A program to create three child processes. The parent process should 
+                   wait for a specific child process using the waitpid system call.
 */
 
 #include <stdio.h>
