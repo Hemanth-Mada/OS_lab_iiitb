@@ -10,7 +10,7 @@
 
 int main()
 {
-    int fd = open("test.txt", O_WRONLY | O_CREAT | O_APPEND, 0666);
+    int fd = open("q11.txt", O_WRONLY | O_CREAT | O_APPEND, 0666);
     int fd_dup = dup(fd);
     int fd_dup2 = dup2(fd, 10);
     int fd_fcntl = fcntl(fd, F_DUPFD, 0);

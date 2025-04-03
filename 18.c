@@ -1,54 +1,50 @@
 /*    Program Number: 18
       Student Name: Mada Hemanth; Register Number: IMT2023581
-      Date: 28 March, 2025
-      Description: 
+      Date: 3 April, 2025
+      Description: This program creates a file and writes records in it.
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <fcntl.h>
+#include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
 
-struct record
+typedef struct record
 {
     int num;
-    char name[20];
-};
+    char *name;
+} rec;
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
-    {
-        printf("Usage: %s <filename>\n", argv[0]);
-        return 1;
-    }
-
     int fd = open(argv[1], O_WRONLY | O_CREAT | O_TRUNC, 0666);
-    if (fd == -1)
-    {
-        perror("File open failed");
-        return 1;
-    }
 
-    struct record recs[3] = {
-        {1, "Alice"},
-        {2, "Bob"},
-        {3, "Charlie"}};
+    rec *myrec1 = (rec *)malloc(sizeof(rec));
+    rec *myrec2 = (rec *)malloc(sizeof(rec));
+    rec *myrec3 = (rec *)malloc(sizeof(rec));
 
-    // writing records into file
-    for (int i = 0; i < 3; i++)
-    {
-        if (write(fd, &recs[i], sizeof(struct record)) == -1)
-        {
-            perror("Write failed");
-            close(fd);
-            return 1;
-        }
-    }
+    myrec1->name = "stud1";
+    myrec1->num = 1;
+    myrec2->name = "stud2";
+    myrec2->num = 2;
+    myrec3->name = "stud3";
+    myrec3->num = 3;
 
-    printf("3 records written to %s\n", argv[1]);
+    printf("Writing record1 : %d %s\n", myrec1->num, myrec1->name);
+    lseek(fd, 0, SEEK_END);
+    write(fd, myrec1, sizeof(rec));
+
+    printf("Writing record2 : %d %s\n", myrec2->num, myrec2->name);
+    lseek(fd, 0, SEEK_END);
+    write(fd, myrec2, sizeof(rec));
+
+    printf("Writing record3 : %d %s\n", myrec3->num, myrec3->name);
+    lseek(fd, 0, SEEK_END);
+    write(fd, myrec3, sizeof(rec));
 
     close(fd);
-    return 0;
+
+    free(myrec1);
+    free(myrec2);
+    free(myrec3);
 }

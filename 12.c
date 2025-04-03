@@ -11,7 +11,7 @@
 
 int main()
 {
-    int fd = open("test.txt", O_RDONLY);
+    int fd = open("q8.txt", O_RDONLY); // q8.txt is a file being taken as an example
     int mode = fcntl(fd, F_GETFL) & O_ACCMODE;
 
     if (mode == O_RDONLY)

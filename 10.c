@@ -14,7 +14,7 @@ int main()
     int fd;
     char buff[] = "ABCDEFGHIJ";
 
-    fd = open("testfile.txt", O_RDWR | O_CREAT, 0666);
+    fd = open("q10.txt", O_RDWR | O_CREAT, 0666);
     write(fd, buff, 10);
 
     off_t pos = lseek(fd, 10, SEEK_CUR);

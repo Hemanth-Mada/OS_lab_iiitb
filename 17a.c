@@ -1,7 +1,7 @@
 /*    Program Number: 17a
       Student Name: Mada Hemanth; Register Number: IMT2023581
       Date: 28 March, 2025
-      Description: This program applies a read lock on a file.
+      Description: This program to open a file, store a ticket number, and exit.
 */
 
 #include <stdio.h>

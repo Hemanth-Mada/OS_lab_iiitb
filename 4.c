@@ -12,7 +12,7 @@ int main()
 {
     int fd1, fd2;
 
-    fd1 = open("test.txt", O_RDWR);
+    fd1 = open("q4.txt", O_RDWR);
     fd2 = open("newfile.txt", O_CREAT | O_EXCL, 0777);
 
     printf("File Descriptors: %d %d\n", fd1, fd2);

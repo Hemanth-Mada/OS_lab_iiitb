@@ -3,6 +3,7 @@
       Date: 24 March, 2025
       Description: This program demonstrates the creation of different file types
                    using system calls: soft link, hard link, and FIFO.
+                   ./a.out 1.sh
 */
 
 #include <stdio.h>

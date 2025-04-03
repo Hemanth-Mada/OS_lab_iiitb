@@ -1,71 +1,65 @@
 /*    Program Number: 29
       Student Name: Mada Hemanth; Register Number: IMT2023581
-      Date: 1 April, 2025
-      Description: This program obtains the current scheduling policy of the process
-                   and then tries to modify it to SCHED_RR (Round Robin).
+      Date: 3 April, 2025
+      Description: This program finds out the current scheduling policy of itself and then
+                   modifies it using the sched_setscheduler system call.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <sched.h>
-#include <string.h>
-#include <errno.h>
+#include <sys/types.h>
 
-const char *get_policy_name(int policy)
+void print_policy(int policy)
 {
-    switch (policy)
+    if (policy == SCHED_OTHER)
     {
-    case SCHED_OTHER:
-        return "SCHED_OTHER (Normal)";
-    case SCHED_FIFO:
-        return "SCHED_FIFO (First In, First Out)";
-    case SCHED_RR:
-        return "SCHED_RR (Round Robin)";
-    default:
-        return "Unknown Policy";
+        printf("Current Scheduling Policy: SCHED_OTHER\n");
+    }
+    else if (policy == SCHED_FIFO)
+    {
+        printf("Current Scheduling Policy: SCHED_FIFO\n");
+    }
+    else if (policy == SCHED_RR)
+    {
+        printf("Current Scheduling Policy: SCHED_RR\n");
+    }
+    else
+    {
+        printf("Unknown Scheduling Policy\n");
     }
 }
 
 int main()
 {
-
-    int process_id = getpid();
-    printf("Current process ID: %d\n", process_id);
-
-    int current_policy;
-    current_policy = sched_getscheduler(process_id);
+    pid_t pid = getpid(); // Get current process ID
+    int current_policy = sched_getscheduler(pid);
 
     if (current_policy == -1)
     {
-        printf("Error getting scheduling policy: %s\n", strerror(errno));
+        perror("sched_getscheduler failed");
         return 1;
     }
 
-    printf("Current scheduling policy is: %d (%s)\n", current_policy, get_policy_name(current_policy));
+    // Print current scheduling policy
+    print_policy(current_policy);
 
-    struct sched_param new_param;
-    new_param.sched_priority = 25;
+    // Set scheduling policy to SCHED_RR (Round Robin)
+    struct sched_param param;
+    param.sched_priority = 10; // Priority for real-time policies
 
-    printf("Attempting to change policy to SCHED_RR\n");
-
-    int result = sched_setscheduler(process_id, SCHED_RR, &new_param);
-
-    if (result == -1)
+    if (sched_setscheduler(pid, SCHED_RR, &param) == -1)
     {
-        printf("Failed to change scheduling policy: %s\n", strerror(errno));
-        printf("Note: You might need to run this program with sudo\n");
+        perror("sched_setscheduler failed");
         return 1;
     }
 
-    int updated_policy = sched_getscheduler(process_id);
-    if (updated_policy == -1)
-    {
-        printf("Error getting updated policy\n");
-        return 1;
-    }
+    printf("Changed scheduling policy to SCHED_RR\n");
 
-    printf("Successfully changed scheduling policy\n");
-    printf("New scheduling policy is: %d (%s)\n", updated_policy, get_policy_name(updated_policy));
+    // Verify the change
+    current_policy = sched_getscheduler(pid);
+    print_policy(current_policy);
 
     return 0;
 }

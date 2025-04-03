@@ -4,13 +4,6 @@
       Description: This program executes a task at a specific time using a Daemon process. 
 */
 
-/* Program Number: 30
-Student Name: name; Register Number: IMT2018000
-Date:
-Description: This program creates a daemon process that runs in the background
-and executes a specific task at a predefined time.
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

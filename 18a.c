@@ -1,7 +1,7 @@
 /*    Program Number: 18a
       Student Name: Mada Hemanth; Register Number: IMT2023581
-      Date: 28 March, 2025
-      Description: 
+      Date: 3 April, 2025
+      Description: This program writes locks the record in the file.
 */
 
 #include <stdio.h>
@@ -9,56 +9,44 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-struct record
-{
+typedef struct record{
     int num;
-    char name[20];
-};
+    char *name;
+} rec;
 
-int main(int argc, char *argv[])
-{
-    if (argc != 2)
-    {
-        printf("Usage: %s <filename>\n", argv[0]);
-        return 1;
-    }
-
+int main(int argc, char *argv[]){
     int fd = open(argv[1], O_WRONLY);
-    if (fd == -1)
-    {
-        perror("Error opening file");
-        return 1;
+    if (fd == -1){
+        printf("Unable to open the file\n");
+        exit(1);
     }
 
-    printf("Which record (1-3) to lock? ");
+    printf("Enter the record number you wish to lock (1 to 3)\n");
     int num;
-    if (scanf("%d", &num) != 1 || num < 1 || num > 3)
-    {
-        printf("Invalid input\n");
-        return 1;
+    if (scanf("%d", &num) != 1 || num < 1 || num > 3){
+        printf("Record number out of bounds\n");
+        exit(1);
     }
 
-    struct flock lock;
-    lock.l_type = F_WRLCK;
-    lock.l_whence = SEEK_SET;
-    lock.l_start = sizeof(struct record) * (num - 1);
-    lock.l_len = sizeof(struct record);
+    struct flock flk;
+    flk.l_type = F_WRLCK;
+    flk.l_whence = SEEK_SET;
+    flk.l_start = sizeof(rec) * (num - 1);
+    flk.l_len = sizeof(rec);
+    flk.l_pid = getpid();
 
-    if (fcntl(fd, F_SETLKW, &lock) == -1)
-    {
-        perror("Lock failed");
-        return 1;
+    int ret = fcntl(fd, F_SETLKW, &flk);
+
+    if (ret == -1){
+        printf("Write lock failed\n");
+        exit(1);
+    }
+    else{
+        printf("Write locked with lock type %d:\n", flk.l_type);
+        flk.l_type = F_UNLCK;
+        fcntl(fd, F_SETLKW, &flk);
     }
 
-    printf("Locked record %d for writing\n", num);
-
-    sleep(5); // Simulate some work
-
-    lock.l_type = F_UNLCK;
-    fcntl(fd, F_SETLKW, &lock);
-
-    printf("Unlocked record %d\n", num);
-
+    printf("Unlocked\n");
     close(fd);
-    return 0;
 }
