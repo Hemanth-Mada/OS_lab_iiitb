@@ -15,6 +15,7 @@ typedef struct
 
 int main()
 {
+    // Open a file named "q17.txt" for reading and writing, creating it if it doesn't exist
     int file = open("q17.txt", O_RDWR | O_CREAT | O_TRUNC, 0644);
     if (file < 0)
     {
@@ -22,12 +23,16 @@ int main()
         return 1;
     }
 
+    // Initialize a Ticket structure with a count of 5
     Ticket tkt = {5};
+
+    // Write the Ticket structure to the file
     if (write(file, &tkt, sizeof(Ticket)) < 0)
     {
         perror("Write failed");
     }
 
+    // Close the file
     close(file);
     return 0;
 }

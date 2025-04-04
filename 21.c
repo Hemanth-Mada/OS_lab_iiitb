@@ -3,6 +3,7 @@
       Date: 28 March, 2025
       Description: a program that opens a file, calls fork, and allows both 
                    the child and parent processes to write to the file. 
+                   ./a.out q21.c
 */
 
 #include <stdio.h>

@@ -3,6 +3,7 @@
       Date: 26 March, 2025
       Description: This program identifies the type of file given as input
                    from the command line.
+                   ./a.out q14
 */
 
 #include <fcntl.h>
@@ -14,12 +15,16 @@ int main(int argc, char *argv[])
 {
     struct stat buf;
 
+    // Loop through each command line argument starting from index 1
     for (int i = 1; i < argc; i++)
     {
+        // Get the status of the file
         stat(argv[i], &buf);
+        // Write the filename to standard output
         write(1, argv[i], sizeof(argv[i]));
         write(1, " is ", 4);
 
+        // Check the type of file and write the corresponding message
         if (S_ISDIR(buf.st_mode))
             write(1, "a directory\n", 12);
         else if (S_ISLNK(buf.st_mode))
