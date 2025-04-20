@@ -29,19 +29,19 @@ int main(int argc, char *argv[])
     close(fd);
 
     // Create a symbolic link
-    if (symlink(argv[1], "symbolic_link") == -1)
+    if (symlink(argv[1], "symbolic_link") == -1)  // A file that contains the path to another file.
     {
         perror("Failed to create symbolic link");
     }
 
     // Create a hard link
-    if (link(argv[1], "hard_link") == -1)
+    if (link(argv[1], "hard_link") == -1)   // Another directory entry pointing to the same inode (same physical file).
     {
         perror("Failed to create hard link");
     }
 
     // Create a named pipe (FIFO)
-    if (mkfifo("named_pipe", 0777) == -1)
+    if (mkfifo("named_pipe", 0777) == -1)   // A special file that acts as a conduit for inter-process communication (IPC).
     {
         perror("Failed to create FIFO");
     }

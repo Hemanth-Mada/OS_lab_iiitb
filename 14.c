@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
     {
         // Get the status of the file
         stat(argv[i], &buf);
+
         // Write the filename to standard output
         write(1, argv[i], sizeof(argv[i]));
         write(1, " is ", 4);

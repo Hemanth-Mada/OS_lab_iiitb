@@ -17,15 +17,16 @@ int main()
 
     write(1, "Enter input within 10 seconds:\n", 30);
 
-    FD_ZERO(&fds);
-    FD_SET(0, &fds);
+    FD_ZERO(&fds);      // Initialize the file descriptor set to empty
+    FD_SET(0, &fds);    // Add file descriptor 0 (standard input) to the set
+
     t.tv_sec = 10;
     t.tv_usec = 0;
 
     int ret = select(1, &fds, NULL, NULL, &t);
 
     if (ret == 0)
-        write(1, "No input entered in 10 seconds\n", 30);
+        write(1, "No input entered in 10 seconds\n", 30);       // monitoring file descriptors to check if they are ready for reading, writing, or if they have any errors.
     else
     {
         int n = read(0, inp, sizeof(inp));
